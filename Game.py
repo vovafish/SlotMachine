@@ -21,8 +21,10 @@ symbol_value = {
     "D": 2
 }
 
+
 def check_winnings(columns, lines, bet, values):
     winnings = 0
+    winning_line = []
     for line in range(lines):
         symbol = columns[0][line]
         for column in columns:
@@ -31,15 +33,18 @@ def check_winnings(columns, lines, bet, values):
                 break
         else:
             winnings += values[symbol] * bet
+            winning_line.append(line + 1)
 
-    return winnings
+    return winnings, winning_line
+
+
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
     for symbol, symbol_count in symbols.items():  # to get the key and the value
         for _ in range(symbol_count):
             all_symbols.append(symbol)
 
-    columns = [[], [], []]
+    columns = []
     for _ in range(cols):
         column = []
         current_sybmols = all_symbols[:]  # to copy a list
@@ -79,7 +84,7 @@ def deposit():
     return amount
 
 
-def get_number_of_line():
+def get_number_of_lines():
     while True:
         lines = input("How many lines to bet on? (1-" + str(MAX_LINES) + ")? ")
         if lines.isdigit():
@@ -108,10 +113,31 @@ def get_bet():
 
     return amount
 
+def spin(balance):
+    lines = get_number_of_lines()
+    while True:
+        bet = get_bet()
+        total_bet = bet * lines
+
+        if total_bet > balance:
+            print(
+                f"You do not have enough to bet that amount, your current balance is: ${balance}")
+        else:
+            break
+
+    print(
+        f"You are betting ${bet} on {lines} lines. Total bet is equal to: ${total_bet}")
+
+    slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
+    print_slot_machine(slots)
+    winnings, winning_lines = check_winnings(slots, lines, bet, symbol_value)
+    print(f"You won ${winnings}.")
+    print(f"You won on lines:", *winning_lines)
+    return winnings - total_bet
 
 def main():
     balance = deposit()
-    lines = get_number_of_line()
+    lines = get_number_of_lines()
     while True:
         bet = get_bet()
         total_bet = bet * lines
@@ -122,8 +148,12 @@ def main():
             break
 
     print(f"You are betting ${bet} on {lines} lines. Total bet is equal to ${total_bet}")
+
     slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
     print_slot_machine(slots)
+    winnings, winning_lines = check_winnings(slots, lines, bet, symbol_value)
+    print(f"You  won ${winnings}$")
+    print(f"You won on lines: ", *winning_lines)  #to pass every single line to winning_lines
 
 
 main()

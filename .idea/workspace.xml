@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40bcd7d3-f5e1-4a20-9819-f841f82e712d" name="Changes" comment="asking user how much they are willing to bet on each line">
+    <list default="true" id="40bcd7d3-f5e1-4a20-9819-f841f82e712d" name="Changes" comment="created function that takes all rows,columns and symbols for them and assign them to each slot and when that particular symbol got assign it removes from all the symbols that left">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game.py" afterDir="false" />
     </list>
@@ -103,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716583032696</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="created function that takes all rows,columns and symbols for them and assign them to each slot and when that particular symbol got assign it removes from all the symbols that left">
+      <option name="closed" value="true" />
+      <created>1716585297235</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716585297235</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -111,6 +119,7 @@
     <MESSAGE value="deposit function, keep asking user what amount he want to deposit until the number is valid" />
     <MESSAGE value="created a func that ask user how many lines on slot machine the use would like to bet on" />
     <MESSAGE value="asking user how much they are willing to bet on each line" />
-    <option name="LAST_COMMIT_MESSAGE" value="asking user how much they are willing to bet on each line" />
+    <MESSAGE value="created function that takes all rows,columns and symbols for them and assign them to each slot and when that particular symbol got assign it removes from all the symbols that left" />
+    <option name="LAST_COMMIT_MESSAGE" value="created function that takes all rows,columns and symbols for them and assign them to each slot and when that particular symbol got assign it removes from all the symbols that left" />
   </component>
 </project>
